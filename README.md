@@ -9,7 +9,7 @@
 ```
 project/
     ├── data/
-    │     └── assets.sample.csv        # sample timeseries data for reference
+    │     └── assets.csv
     ├── main.py
     ├── data_loader.py
     ├── strategy_engine.py
@@ -25,7 +25,6 @@ project/
 - `Python` >= 3.10
 - `UV` ([install](https://docs.astral.sh/uv/#installation)) package Manager (recommended) or pip
 - `Groq API` key (FREE tier available). Place in `.env` variable `GROQ_API_KEY=<placeholder>`.
-- `assets.csv` dataset (download any similar dataset as given in sample data, place inside `data/` dir).
 
 ### 1. Clone the Repo
 
@@ -44,7 +43,7 @@ uv sync
 # OR with pip:
 python -m venv .venv      # python3 for linux/macOS
 source .venv/bin/activate    # On Windows: .venv\Scripts\activate
-pip install pandas groq python-dotenv
+pip install pandas groq python-dotenv rich
 ```
 
 ### 5. Run

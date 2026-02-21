@@ -44,4 +44,4 @@ def analyze_strategies(results: dict) -> str:
         temperature=0.3
     )
 
-    return response.choices[0].message.content
+    return str(response.choices[0].message.content)

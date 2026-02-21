@@ -4,12 +4,12 @@ def compute_momentum_score(prices: pd.DataFrame, lookback_days: int
 ) -> pd.DataFrame:
     shifted = prices.apply(
         lambda col: [
-            col.asof(date - pd.DateOffset(days=lookback_days))
-            for date in col.index
+            col.asof(date - pd.DateOffset(days=lookback_days)) for date in col.index
         ]
     )
     shifted = pd.DataFrame(shifted, index=prices.index, columns=prices.columns)
     return (prices / shifted) - 1
+    # return (prices / prices.shift(lookback_days)) - 1
 
 
 def get_rebalance_dates(df: pd.DataFrame):
@@ -19,10 +19,9 @@ def get_rebalance_dates(df: pd.DataFrame):
 def get_top2_assets(scores: pd.DataFrame, rebalance_dates) -> dict:
     holdings = {}
     for date in rebalance_dates:
-        if date in scores.index:
-            row = scores.loc[date].dropna()
-            top2 = row.nlargest(2).index.tolist()
-            holdings[date] = top2
+        row = scores.loc[date].dropna()
+        top2 = row.nlargest(2).index.tolist()
+        holdings[date] = top2
     return holdings
 
 
