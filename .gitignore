@@ -9,7 +9,7 @@ wheels/
 # Virtual environments
 .venv
 
-data/assets.csv
+.DS_Store
 test.ipynb
 docs.md
 .env
